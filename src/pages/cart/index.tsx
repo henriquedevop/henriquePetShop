@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 export function Cart() {
 
-  const {cart, addItemCart} = useContext(CartContext)
+  const {cart, addItemCart, removeItemCart, total} = useContext(CartContext)
 
     return (
       <div className="min-h-screen bg-gray-50">
@@ -28,7 +28,9 @@ export function Cart() {
                   })}</p>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-2 rounded-md">
+                  <button
+                  onClick={() => removeItemCart(item)}
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-2 rounded-md">
                     -
                   </button>
                   <span className="text-lg font-medium">{item.amount}</span>
@@ -55,7 +57,7 @@ export function Cart() {
           <div className="mt-8 p-4 bg-white shadow-md rounded-lg">
             <div className="flex justify-between items-center text-lg font-semibold text-gray-800">
               <span>Total do Carrinho:</span>
-              <span>R$ 150,00</span>
+              <span>{total}</span>
             </div>
           </div>
         </div>
