@@ -58,7 +58,13 @@ function CartProvider({children}: CartProviderProps) {
         const indexItem = cart.findIndex(item => item.id === product.id)
 
         if(cart[indexItem].amount > 1) {
+            let updateCart = [...cart]
 
+            updateCart[indexItem].amount -= 1
+            updateCart[indexItem].total = updateCart[indexItem].total - updateCart[indexItem].price
+            setCart(updateCart)
+            totalItemsCart(updateCart)
+            return
         }
 
         const removeItem = cart.filter(item => item.id !== product.id)
