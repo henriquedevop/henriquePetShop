@@ -28,23 +28,25 @@ function CartProvider({children}: CartProviderProps) {
     const [cart, setCart] = useState<CartProps[]>([])
 
     function addItemCart(newitem: ProductProps) {
-        const indexItem = cart.findIndex(item => item.id === newitem.id)
-
-        if(indexItem !== -1) {
-            let cartList = cart
-
-            cartList[indexItem].amount = cartList[indexItem].amount + 1
-            cartList[indexItem].total = cartList[indexItem].amount * cartList[indexItem].price
-            setCart(cartList)
-            return
+        const indexItem = cart.findIndex(item => item.id === newitem.id);
+    
+        if (indexItem !== -1) {
+            const updatedCart = [...cart];
+    
+            updatedCart[indexItem].amount += 1;
+            updatedCart[indexItem].total = updatedCart[indexItem].amount * updatedCart[indexItem].price;
+    
+            setCart(updatedCart);
+            return;
         }
-
-        let data = {
+    
+        const data = {
             ...newitem,
             amount: 1,
             total: newitem.price,
-        }
-        setCart(products => [...products, data])
+        };
+    
+        setCart([...cart, data]); 
     }
 
     return (
