@@ -3,8 +3,10 @@ import { api } from "../../services/api"
 import { BiCart } from "react-icons/bi";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { Link } from "react-router";
 
 export interface ProductProps {
+    map(arg0: (item: any) => import("react/jsx-runtime").JSX.Element): import("react").ReactNode;
     id: number;
     title: string;
     description: string;
@@ -59,11 +61,13 @@ export function Home() {
               key={item.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105 duration-200"
             >
+              <Link to={`/product/${item.id}`}>
               <img
                 alt={item.title}
                 src={item.cover}
                 className="w-full h-40 object-cover"
               />
+              </Link>
               <div className="p-5">
                 <h3 className="text-lg font-bold text-gray-800">{item.title}</h3>
                 <p className="text-xl font-bold text-green-600 mt-2">
