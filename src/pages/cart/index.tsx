@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { Link } from "react-router";
 export function Cart() {
 
   const {cart, addItemCart, removeItemCart, total} = useContext(CartContext)
@@ -49,17 +50,22 @@ export function Cart() {
               </div>
               ))
             ) : (
-              <span>tem nada</span>
+              <div className="flex flex-col justify-center items-center">
+                <span>Seu carrinho está vazio...</span>
+                <Link className="bg-zinc-500 text-white p-2 rounded" to="/">Volte para a home</Link>
+              </div>
             )}
           </div>
           
   
-          <div className="mt-8 p-4 bg-white shadow-md rounded-lg">
+          {total && (
+            <div className="mt-8 p-4 bg-white shadow-md rounded-lg">
             <div className="flex justify-between items-center text-lg font-semibold text-gray-800">
               <span>Total do Carrinho:</span>
               <span>{total}</span>
             </div>
           </div>
+          )}
         </div>
       </div>
     );
