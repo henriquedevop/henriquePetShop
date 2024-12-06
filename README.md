@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# Henrique Pet Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Preview do Projeto - Tela Inicial](src/assets/previewpetshop.png)
 
-Currently, two official plugins are available:
+Este é um projeto simples de e-commerce voltado para um pet shop, desenvolvido com o intuito de estudar e aplicar conceitos de gerenciamento de estado no React utilizando Context API e useContext. O projeto também aborda o consumo de APIs, estilização com Tailwind CSS e práticas modernas de desenvolvimento front-end.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Objetivo 
+O principal objetivo foi compreender como usar o Context API para compartilhar dados entre componentes em uma aplicação React, sem a necessidade de bibliotecas externas como Redux. Durante o desenvolvimento, foram abordados conceitos fundamentais, incluindo:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-  Criação e configuração de contextos globais.
+-  Compartilhamento e gerenciamento de dados no carrinho de compras.
+-  Utilização de useContext para acessar os valores globais.
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Funcionalidades 🚀
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-  Listagem de produtos consumidos de uma API.
+-  Visualização detalhada de um produto em uma página individual.
+-  Adicionar produtos ao carrinho com gerenciamento dinâmico de quantidade e preço.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Como Executar o Projeto
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone o repositório:  
+   ```bash
+   git clone git@github.com:henriquedevop/henriquePetShop.git
+   ```
+2. Navegue até o diretório do projeto::  
+   ```bash
+   cd henriquecommerce
+   ```
+3. Instale as dependências:  
+   ```bash
+   npm install
+   ```
+4. Inicie o servidor de desenvolvimento:  
+   ```bash
+   npm run dev
+   ```
+
+## Tecnologias Utilizadas ⚙️
+- **React**  
+- **TypeScript**  
+- **Tailwind CSS**  
+
+## Autor
+Desenvolvido por [Henrique Devop](https://github.com/henriquedevop)
