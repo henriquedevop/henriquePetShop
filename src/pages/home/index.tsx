@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import { api } from "../../services/api"
 import { BiCart } from "react-icons/bi";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 
-interface ProductProps {
+export interface ProductProps {
     id: number;
     title: string;
     description: string;
@@ -13,6 +15,7 @@ interface ProductProps {
 export function Home() {
 
     const [products, setProducts] = useState<ProductProps[]>([])
+    const { addItemCart } = useContext(CartContext)
 
     useEffect(() => {
         async function getData() {
@@ -22,6 +25,10 @@ export function Home() {
 
         getData()
     },[])
+
+    function handleAddItem(item:ProductProps) {
+      addItemCart(item)
+    }
 
     return (
         <div className="bg-gray-50 min-h-screen">
@@ -65,7 +72,9 @@ export function Home() {
                     currency: "BRL"
                   })}
                 </p>
-                <button className="w-full mt-4 bg-orange-500 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:bg-orange-600 transition-colors">
+                <button
+                onClick={() => handleAddItem(item)}
+                className="w-full mt-4 bg-orange-500 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:bg-orange-600 transition-colors">
                   <BiCart size={22} />
                   Adicionar ao carrinho
                 </button>
